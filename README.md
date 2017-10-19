@@ -19,6 +19,6 @@ A client written in ASP.NET is available in Client directory - this is basically
 2. In the first tab's page's input field type "x".
 3. Do the same in the second tab but type "o".
 4. Play and Enjoy.
-##
-##Contributions
+
+## Contributions
 I will surely appriciate to make this more stylish. 
