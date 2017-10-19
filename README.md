@@ -15,7 +15,7 @@ A client written in ASP.NET is available in Client directory - this is basically
 6. `dotnet build`.
 7. `dotnet run` - _TicTacToe client will be served in http://localhost:3254/Player_.
 ### Use the app
-1. Open two browser tabs and go to `http://localhost:3254/Player`
+1. Open two browser tabs and go to _http://localhost:3254/Player_
 2. In the first tab's page's input field type "x".
 3. Do the same in the second tab but type "o".
 4. Play and Enjoy.
