@@ -1,0 +1,106 @@
+<input id="playerName" type="text"/>
+<br/><br/>
+<button id="btn1" type="button" style="height:25px; width:25px;"></button>
+<button id="btn2" type="button" style="height:25px; width:25px;"></button>
+<button id="btn3" type="button" style="height:25px; width:25px;"></button>
+<br/><br/>
+<button id="btn4" type="button" style="height:25px; width:25px;"></button>
+<button id="btn5" type="button" style="height:25px; width:25px;"></button>
+<button id="btn6" type="button" style="height:25px; width:25px;"></button>
+<br/><br/>
+<button id="btn7" type="button" style="height:25px; width:25px;"></button>
+<button id="btn8" type="button" style="height:25px; width:25px;"></button>
+<button id="btn9" type="button" style="height:25px; width:25px;"></button>
+
+
+@section scripts {
+    <script>
+        $(function () {
+
+            let hubUrl = 'http://localhost:5000/markPosition';
+            let httpConnection = new signalR.HttpConnection(hubUrl);
+            let hubConnection = new signalR.HubConnection(httpConnection);
+            
+            hubConnection.on('OnMarked', 
+            (playerNameData, postionData) => {
+                if(postionData == '1') $('#btn1').text(playerNameData);
+                if(postionData == '2') $('#btn2').text(playerNameData);
+                if(postionData == '3') $('#btn3').text(playerNameData);
+                if(postionData == '4') $('#btn4').text(playerNameData);
+                if(postionData == '5') $('#btn5').text(playerNameData);
+                if(postionData == '6') $('#btn6').text(playerNameData);
+                if(postionData == '7') $('#btn7').text(playerNameData);
+                if(postionData == '8') $('#btn8').text(playerNameData);
+                if(postionData == '9') $('#btn9').text(playerNameData);
+                enableButtons(playerNameData, $('#playerName').val());
+            });
+
+            $("#btn1").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '1');
+                disableButtons();
+            });
+            $("#btn2").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '2');
+                disableButtons();
+            });
+            $("#btn3").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '3');
+                disableButtons();
+            });
+            $("#btn4").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '4');
+                disableButtons();
+            });
+            $("#btn5").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '5');
+                disableButtons();
+            });
+            $("#btn6").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '6');
+                disableButtons();
+            });
+            $("#btn7").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '7');
+                disableButtons();
+            });
+            $("#btn8").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '8');
+                disableButtons();
+            });
+            $("#btn9").click(function () {
+                hubConnection.invoke('MarkPosition', $('#playerName').val(), '9');
+                disableButtons();
+            });
+
+
+            hubConnection.start();
+        });
+
+        function disableButtons(){
+            $("#btn1").attr("disabled", true);
+            $("#btn2").attr("disabled", true);
+            $("#btn3").attr("disabled", true);
+            $("#btn4").attr("disabled", true);
+            $("#btn5").attr("disabled", true);
+            $("#btn6").attr("disabled", true);
+            $("#btn7").attr("disabled", true);
+            $("#btn8").attr("disabled", true);
+            $("#btn9").attr("disabled", true);
+        }
+
+        function enableButtons(a, b){
+            if(a != b)
+            {
+                $("#btn1").attr("disabled", false);
+                $("#btn2").attr("disabled", false);
+                $("#btn3").attr("disabled", false);
+                $("#btn4").attr("disabled", false);
+                $("#btn5").attr("disabled", false);
+                $("#btn6").attr("disabled", false);
+                $("#btn7").attr("disabled", false);
+                $("#btn8").attr("disabled", false);
+                $("#btn9").attr("disabled", false);
+            }
+        }
+    </script>
+}
