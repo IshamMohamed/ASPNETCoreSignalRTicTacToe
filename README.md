@@ -21,4 +21,4 @@ A client written in ASP.NET is available in Client directory - this is basically
 4. Play and Enjoy.
 
 ## Contributions
-I will surely appriciate to make this more stylish. 
+I will surely appriciate to make this more stylish and usable in a real world scenario.
